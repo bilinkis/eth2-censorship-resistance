@@ -9,6 +9,8 @@ import (
 	"block-tracker/utils/rest_errors"
 )
 
+// FIXME: Read blocks tracking should be implemented.
+
 const PROJECT_ID = "2DcxB73Jic8Q5MqHgpag5uVo1Ls"
 const SECRET_ID = "2cfac5a6a2434c4064163cbc18d1af4b"
 const DOMAIN_URL = "@eth2-beacon-prater.infura.io/eth/v1/beacon/headers"
