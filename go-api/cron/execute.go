@@ -5,6 +5,6 @@ import (
 )
 
 func ExecutePriceCronJob() {
-    gocron.Every(12).Seconds().Do(checkBlock)
+    gocron.Every(12).Seconds().Do(blockTask)
     <- gocron.Start()
 }
