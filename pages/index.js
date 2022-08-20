@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import { createAlchemyWeb3 } from "@alch/alchemy-web3";
-import React from "React";
-const web3 = createAlchemyWeb3("wss://eth-goerli.g.alchemy.com/v2/0jX8azzT1Ed6Xhg7Ead6VOloiCTbn5m6");
-
+import React from "react";
+const web3 = createAlchemyWeb3("https://2DbbASnSDnIyLB0rBJhoZyLasyN:2763a08f83889d1f9a1bb17f0dde8541@eth2-beacon-mainnet.infura.io");
+import fetch from "node-fetch";
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -12,11 +12,14 @@ export default class Home extends React.Component {
     }
 
   }
-  componentDidMount = () =>{
-    this.checkBlocks();
+  componentDidMount = async () =>{
+    //this.checkBlocks();
+    fetch("https://prater.beaconcha.in/api/v1/block/1000").then(async (block)=>{
+      console.log(await block.json())
+    })
   }
   checkBlocks = () => {
-    web3.eth.subscribe("newBlockHeaders",(error,event)=>{
+    web3.eth.subscribe("newHeads",(error,event)=>{
       console.log(this.state.blocks)
       let newBlockObject = this.state.blocks;
       newBlockObject.push(event);
@@ -35,9 +38,9 @@ export default class Home extends React.Component {
 
       <main>
         <h1>Latest blocks</h1>
-        {this.state.blocks.map((block)=>{
+        {/*this.state.blocks.map((block)=>{
           return(<h1 key={block.number}>{block.number}</h1>)
-        })}
+        })*/}
         
       </main>
 
