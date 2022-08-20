@@ -5,6 +5,7 @@ import (
 	// "net/http"
 
 	"block-tracker/controllers/status"
+	blocks "block-tracker/controllers/blocks"
 )
 
 func mapUrls() {
@@ -12,4 +13,6 @@ func mapUrls() {
 	// _ = notImplemented
 	
 	router.GET("/", status.Status)
+	router.GET("/report/:block", blocks.GetBlockReport)
+	router.GET("/report/:miner", blocks.GetMinerReport)
 }

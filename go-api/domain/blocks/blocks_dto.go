@@ -16,12 +16,12 @@ func (block *Block) Validate() rest_errors.RestErr {
 		return rest_errors.NewBadRequestError("invalid block data")
 	}
 
-	block.Number = trAstr(block.Number)
-	block.Miner = trAstr(block.Miner)
+	block.Number = TrStr(block.Number)
+	block.Miner = TrStr(block.Miner)
 
 	return nil
 }
 
-func trAstr(str string) string {
+func TrStr(str string) string {
 	return strings.ToLower(strings.TrimSpace(str))
 }

@@ -47,7 +47,7 @@ func (block *Block) Get() rest_errors.RestErr {
 }
 
 func (block *Block) FindByMinerAndStatus(miner string, orphan bool) ([]Block, rest_errors.RestErr) {
-	miner = trAstr(miner)
+	miner = TrStr(miner)
 	
 	stmt, err := blocks_db.Client.Prepare(queryFindByMinerAndStatus)
 	if err != nil {
