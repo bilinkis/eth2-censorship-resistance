@@ -4,14 +4,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"math/big"
-
 	rest "block-tracker/clients"
 	"block-tracker/domain/blocks"
 	"block-tracker/utils/rest_errors"
 )
-
-var LAST_BLOCK big.Int
 
 const PROJECT_ID = "2DcxB73Jic8Q5MqHgpag5uVo1Ls"
 const SECRET_ID = "2cfac5a6a2434c4064163cbc18d1af4b"
@@ -21,12 +17,6 @@ func init() {
 	lb, err := checkBlock("")
 	if err != nil {
 		fmt.Println(err)
-	}
-
-	if n, ok := new(big.Int).SetString(lb.Number, 10); !ok {
-		fmt.Println(err)
-	} else {
-		LAST_BLOCK = *n
 	}
 
 	if lb.Orphan {
@@ -41,8 +31,6 @@ func checkBlock(number string) (*blocks.Block, rest_errors.RestErr) {
 	resp, err := rest.Get(createURL(number), nil)
 	if err != nil {
 		return nil, rest_errors.NewInternalServerError("Error while querying Infura", err)
-	} else {
-		LAST_BLOCK = *LAST_BLOCK.Add(&LAST_BLOCK, big.NewInt(1))
 	}
 	defer resp.Body.Close()
 
@@ -54,10 +42,11 @@ func checkBlock(number string) (*blocks.Block, rest_errors.RestErr) {
 	var responseObject blocks.InfuraHeaderResponse
 	json.Unmarshal(body, &responseObject)
 
-	c := responseObject.Data.Canonical
-	m := responseObject.Data.Header.Message.ProposerIndex
+	c := responseObject.Data[0].Canonical
+	n := responseObject.Data[0].Header.Message.Slot
+	m := responseObject.Data[0].Header.Message.ProposerIndex
 
-	block := blocks.Block{Number: number, Miner: m, Orphan: !c}
+	block := &blocks.Block{Number: n, Miner: m, Orphan: !c}
 
 	if block.Orphan {
 		err = block.Save()
@@ -66,7 +55,7 @@ func checkBlock(number string) (*blocks.Block, rest_errors.RestErr) {
 		}
 	}
 
-	return &block, nil
+	return block, nil
 }
 
 func createURL(number string) string {
@@ -77,7 +66,7 @@ func createURL(number string) string {
 }
 
 func blockTask() {
-	lb, err := checkBlock(LAST_BLOCK.String())
+	lb, err := checkBlock("")
 	if err != nil {
 		fmt.Println(err)
 	}

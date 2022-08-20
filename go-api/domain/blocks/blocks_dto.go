@@ -27,25 +27,25 @@ func TrStr(str string) string {
 }
 
 type InfuraHeaderResponse struct {
-	ExcOpt bool `json:"-"`
-	Data IHRData `json:"data"`
+	ExcOpt bool `json:"execution_optimistic"`
+	Data []IHRData `json:"data"`
 }
 
 type IHRData struct {
-	Root string `json:"-"`
+	Root string `json:"execution_optimistic"`
 	Canonical bool `json:"canonical"`
 	Header IHRDHeader `json:"header"`
-	Signature string `json:"-"`
 }
 
 type IHRDHeader struct {
 	Message IHRDHMessage `json:"message"`
+	Signature string `json:"signature"`
 }
 
 type IHRDHMessage struct {
 	Slot string `json:"slot"`
 	ProposerIndex string `json:"proposer_index"`
-	ParentRoot string `json:"-"`
-	StateRoot string `json:"-"`
-	BodyRoot string `json:"-"`
+	ParentRoot string `json:"parent_root"`
+	StateRoot string `json:"state_root"`
+	BodyRoot string `json:"body_root"`
 }

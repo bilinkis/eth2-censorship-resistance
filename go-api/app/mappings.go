@@ -13,6 +13,6 @@ func mapUrls() {
 	// _ = notImplemented
 	
 	router.GET("/", status.Status)
-	router.GET("/report/:block", blocks.GetBlockReport)
-	router.GET("/report/:miner", blocks.GetMinerReport)
+	router.GET("/report/block/:block", blocks.GetBlockReport)
+	router.GET("/report/miner/:miner", blocks.GetMinerReport)
 }

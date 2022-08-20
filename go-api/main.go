@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	go cron.ExecutePriceCronJob()
+	go cron.ExecuteCronJob()
 	app.StartApp()
 }

@@ -4,7 +4,7 @@ import (
 	"github.com/jasonlvhit/gocron"
 )
 
-func ExecutePriceCronJob() {
+func ExecuteCronJob() {
     gocron.Every(12).Seconds().Do(blockTask)
     <- gocron.Start()
 }
