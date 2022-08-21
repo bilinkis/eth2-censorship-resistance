@@ -15,16 +15,16 @@ export default class Home extends React.Component {
   }
   componentDidMount = async () =>{
     this.checkBlocks();
-    const response = await axios.get('https://eth2-beacon-prater.infura.io/eth/v1/beacon/headers/', {
+    /*const response = await axios.get('https://eth2-beacon-prater.infura.io/eth/v1/beacon/headers/', {
     auth: {
-        username: '2DbbASnSDnIyLB0rBJhoZyLasyN',
-        password: '2763a08f83889d1f9a1bb17f0dde8541'
+        
     }
 });
 console.log(response)
         fetch("https://prater.beaconcha.in/api/v1/block/1000").then(async (block)=>{
       console.log(await block.json())
     })
+    */
   }
   checkBlocks = () => {
     web3.eth.subscribe("newHeads",(error,event)=>{
