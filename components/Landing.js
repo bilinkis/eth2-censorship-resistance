@@ -32,7 +32,7 @@ export default function Landing() {
             pb: 6,
           }}
         >
-          <Container maxWidth="md" style={{ color: "#03A9F4" }}>
+          <Container maxWidth="lg" style={{ color: "#03A9F4" }}>
             <CardMedia
               component="img"
               style={{
@@ -83,8 +83,20 @@ export default function Landing() {
             </Stack>
           </Container>
         </Box>
-        
-        <Container sx={{ py: 8 }} maxWidth="md">
+        <Container sx={{ py: 8 }} maxWidth="lg" style={{textAlign:"center"}}>
+        <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="text.primary"
+            gutterBottom
+          >
+            Roadmap
+          </Typography>
+          <img src="/roadmap.png"></img>
+          
+        </Container>
+        <Container sx={{ py: 8 }} maxWidth="lg">
           {/* End hero unit */}
           <Typography
             component="h1"
@@ -459,7 +471,7 @@ export default function Landing() {
         >
           Made with ❤️ at ETHMéxico
         </Typography>
-        <Container style={{ display:"flex",flexDirection:"row", alignItems:"center", justifyContent:"space-evenly", alignContent:"center"}}>
+        <Container style={{ display:"flex",flexDirection:"row", alignItems:"center", justifyContent:"center", alignContent:"center", textAlign:"center"}}>
           
         <Link
           href="https://github.com/bilinkis/eth2-censorship-resistance"
