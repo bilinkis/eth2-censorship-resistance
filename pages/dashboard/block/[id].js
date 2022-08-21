@@ -118,7 +118,7 @@ function DashboardContent() {
               {/* Recent Orders */}
               <Grid style={{display:"block", margin:"0 auto"}}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems:"center" }}>
-                  <Typography>Block slot: {id}</Typography>
+                  <Typography>Block number (slot): {id}</Typography>
                   <Typography>Epoch: 141051</Typography>
                   <Typography>Age: 14 hrs 44 mins ago</Typography>
                   <Link href="/dashboard/validator/59044"><Typography>Validator: 59044</Typography></Link>

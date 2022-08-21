@@ -115,6 +115,14 @@ function DashboardContent() {
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }} >
             <Grid container spacing={3} >
               {/* Chart */}
+              <Typography
+              component="h1"
+              variant="h2"
+              align="center"
+              color="text.primary"
+              gutterBottom={"10px"}
+              style={{ marginBottom: "30px" }}
+            >Find out about possible censorship attempts on Ethereum's blockchain </Typography>
               <Grid item xs={12} md={12} lg={12} style={{display:"flex", justifyContent:"center", backgroundColor:"#fff", marginBottom:"5%"}}>
               <LineChart 
                         height={400}

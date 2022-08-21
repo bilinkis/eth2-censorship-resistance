@@ -78,9 +78,9 @@ export default function Rankings() {
         <TableHead>
           <TableRow>
             <TableCell>Epoch</TableCell>
-            <TableCell>Slot (ID)</TableCell>
+            <TableCell>Block number (slot)</TableCell>
             <TableCell>Age</TableCell>
-            <TableCell>Proposer</TableCell>
+            <TableCell>Validator/Proposer</TableCell>
             
           </TableRow>
         </TableHead>

@@ -272,7 +272,7 @@ export default function Landing() {
                       textAlign: "center",
                     }}
                   >
-                    Marketing and tech enthusiast from México 🇲🇽
+                    Marketing enthusiast and BD from México 🇲🇽
                   </Typography>
                 </CardContent>
                 <CardActions
@@ -409,7 +409,7 @@ export default function Landing() {
                       textAlign: "center",
                     }}
                   >
-                    Community Lead from México 🇲🇽
+                    Community Lead and Meme Master from México 🇲🇽
                   </Typography>
                 </CardContent>
                 <CardActions
@@ -457,7 +457,7 @@ export default function Landing() {
           component="p"
           style={{ fontWeight: "bold" }}
         >
-          Made with ❤️ at ETHMéxico with the invaluable help of the <Link href="https://ethereum.org/foundation/" target="_blank" style={{textDecoration:"none", color:"white"}}>Ethereum Foundation</Link>
+          Made with ❤️ at ETHMéxico
         </Typography>
         <Container style={{ display:"flex",flexDirection:"row", alignItems:"center", justifyContent:"space-evenly", alignContent:"center"}}>
           
