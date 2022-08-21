@@ -445,6 +445,7 @@ export default function Landing() {
         style={{ margin: "0 auto", display: "block" }}
         component="footer"
       >
+        
         <Typography
           variant="subtitle1"
           align="center"
@@ -452,22 +453,24 @@ export default function Landing() {
           component="p"
           style={{ fontWeight: "bold" }}
         >
-          Made with 🫶🏻 at ETHMéxico with the invaluable help of the Ethereum
-          Foundation
+          Made with ❤️ at ETHMéxico with the invaluable help of the <Link href="https://ethereum.org/foundation/" target="_blank" style={{textDecoration:"none", color:"white"}}>Ethereum Foundation</Link>
         </Typography>
-
-        <Link href="https://twitter.com/EthUncensored" target={"_blank"}>
+        <Container style={{ display:"flex",flexDirection:"row", alignItems:"center", justifyContent:"space-evenly", alignContent:"center"}}>
+        <Link href="https://twitter.com/EthUncensored" target={"_blank"} style={{textDecoration:"none"}}>
           <img
             src="/Twitter.png"
-            style={{ width: "10%",  maxWidth:"50px", margin: "10px" }}
+            style={{ width: "50%",  maxWidth:"150px", margin: "10px" }}
           ></img>
         </Link>
+          
         <Link
           href="https://github.com/bilinkis/eth2-censorship-resistance"
           target={"_blank"}
+          style={{textDecoration:"none"}}
         >
-          <img src="/github.png" style={{ width: "10%", maxWidth:"50px", margin: "10px" }}></img>
+          <img src="/github.png" style={{ width: "50%", maxWidth:"150px", margin: "10px" }}></img>
         </Link>
+        </Container>
       </Box>
       {/* End footer */}
     </ThemeProvider>

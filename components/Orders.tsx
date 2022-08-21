@@ -9,50 +9,35 @@ import Title from './Title';
 
 // Generate Order Data
 function createData(
-  id: number,
-  date: string,
-  name: string,
-  shipTo: string,
-  paymentMethod: string,
-  amount: number,
+  epoch: number,
+  slot: number,
+  age: string,
+  proposer: number,
+  
 ) {
-  return { id, date, name, shipTo, paymentMethod, amount };
+  return { epoch, slot, age, proposer };
 }
 
 const rows = [
   createData(
-    0,
-    '16 Mar, 2019',
-    'Elvis Presley',
-    'Tupelo, MS',
-    'VISA ⠀•••• 3719',
-    312.44,
+    141051,
+    4513636,
+    '14 hrs 44 mins ago',
+    59044,
   ),
   createData(
-    1,
-    '16 Mar, 2019',
-    'Paul McCartney',
-    'London, UK',
-    'VISA ⠀•••• 2574',
-    866.99,
+    141051,
+    4513648,
+    '14 hrs 41 mins ago',
+    38719,
   ),
-  createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
+  createData(141058, 4513859, '13 hrs 59 mins ago', 94612),
   createData(
-    3,
-    '16 Mar, 2019',
-    'Michael Jackson',
-    'Gary, IN',
-    'AMEX ⠀•••• 2000',
-    654.39,
-  ),
-  createData(
-    4,
-    '15 Mar, 2019',
-    'Bruce Springsteen',
-    'Long Branch, NJ',
-    'VISA ⠀•••• 5919',
-    212.79,
-  ),
+    141083,
+    4514680,
+    '11 hrs 15 mins ago',
+    109235,
+  )
 ];
 
 function preventDefault(event: React.MouseEvent) {
@@ -66,21 +51,19 @@ export default function Orders() {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell>Epoch</TableCell>
+            <TableCell>Slot (ID)</TableCell>
+            <TableCell>Age</TableCell>
+            <TableCell>Proposer</TableCell>
+            
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{`$${row.amount}`}</TableCell>
+            <TableRow key={row.epoch}>
+              <TableCell>{row.slot}</TableCell>
+              <TableCell>{row.age}</TableCell>
+              <TableCell>{row.proposer}</TableCell>
             </TableRow>
           ))}
         </TableBody>
