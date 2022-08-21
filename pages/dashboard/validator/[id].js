@@ -53,20 +53,36 @@ const AppBar = styled(MuiAppBar, {
 
 const mdTheme = createTheme();
 function createData(
-  hash,
-  from,
-  to,
-  value,
+  epoch,
+  slot,
+  age,
+  proposer,
   
 ) {
-  return { hash, from, to, value };
+  return { epoch, slot, age, proposer };
 }
-const txs = [
-  createData("0xd59a30e4fdb2ec9ca21ff765e2d0643225ab8e8b8c64da1061ecc4369bfb625b", "0xf5687849dba892d0738bd0cffb504720ed938961", "Tornado Cash", "0.1"),
-  createData("0xa33c3eeadf9cd2d4d99bc3f36a60c7ad6e9bea0767c5b201eed1fa28b542b311", "0xf35074bbd0a9aee46f4ea137971feec024ab704e", "ENS", "0.013"),
-  createData("0xf066230fc17b2b30e3ca2f6bf02f2dec696b489e6e08b9f2a6670bb7be13af2a", "0x8610df5a928e4bcec0eaf3df4aaa66ca2ceb06ae", "Bored Apes Yacht Club", "97"),
-  createData("0xd59a30e4fdb2ec9ca21ff765e2d0643225ab8e8b8c64da1061ecc4369bfb625b", "0xa73245fd145860cf66dcff4aac4a78c213a73407", "Tornado Cash", "1"),
-];
+
+  const blocks = [
+    createData(
+      141051,
+      4513636,
+      '14 hrs 44 mins ago',
+      59044,
+    ),
+    createData(
+      141052,
+      4513648,
+      '14 hrs 41 mins ago',
+      38719,
+    ),
+    createData(141058, 4513859, '13 hrs 59 mins ago', 94612),
+    createData(
+      141083,
+      4514680,
+      '11 hrs 15 mins ago',
+      109235,
+    )
+  ];
 
 function DashboardContent() {
   const router = useRouter();
@@ -118,30 +134,30 @@ function DashboardContent() {
               {/* Recent Orders */}
               <Grid style={{display:"block", margin:"0 auto"}}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems:"center" }}>
-                  <Typography>Block slot: {id}</Typography>
-                  <Typography>Epoch: 141051</Typography>
-                  <Typography>Age: 14 hrs 44 mins ago</Typography>
-                  <Link href="/dashboard/validator/59044"><Typography>Validator: 59044</Typography></Link>
+                  <Typography>Validator: {id}</Typography>
+                  <Typography>Pool: Coinbase</Typography>
+                  <Typography>Stake: 1024 ETH</Typography>
+                  <Typography>Orphaned blocks: 14</Typography>
                   
                   <React.Fragment>
-      <Title>Block's transactions</Title>
+      <Title>Latest orphaned blocks</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>TX Hash</TableCell>
-            <TableCell>From</TableCell>
-            <TableCell>To</TableCell>
-            <TableCell>Value</TableCell>
+            <TableCell>Epoch</TableCell>
+            <TableCell>Slot (ID)</TableCell>
+            <TableCell>Age</TableCell>
+            <TableCell>Proposer</TableCell>
             
           </TableRow>
         </TableHead>
         <TableBody>
-          {txs.map((tx) => (
-            <TableRow key={tx.hash}>
-              <TableCell>{tx.hash}</TableCell>
-              <TableCell>{tx.from}</TableCell>
-              <TableCell>{tx.to}</TableCell>
-              <TableCell>{tx.value} ETH</TableCell>
+          {blocks.map((block) => (
+            <TableRow key={block.epoch}>
+              <TableCell>{block.epoch}</TableCell>
+              <Link href={`/dashboard/block/${block.slot}`}><TableCell>{block.slot}</TableCell></Link>
+              <TableCell>{block.age}</TableCell>
+              <TableCell>{id}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -158,6 +174,6 @@ function DashboardContent() {
   );
 }
 
-export default function Block() {
+export default function Validator() {
   return <DashboardContent />;
 }
