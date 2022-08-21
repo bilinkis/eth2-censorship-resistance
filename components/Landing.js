@@ -61,7 +61,7 @@ export default function Landing() {
               color="text.primary"
               paragraph
             >
-              Public Good for the Ethereum Community that informs when a block may have been intentionally censored and allows the community to take action against these intentional attacks.
+              Public Good tool for the Ethereum Community that informs when a block may have been intentionally censored and allows the community to take action against these intentional attacks.
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -83,6 +83,7 @@ export default function Landing() {
             </Stack>
           </Container>
         </Box>
+        
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Typography
@@ -438,6 +439,9 @@ export default function Landing() {
             </Grid>
           </Grid>
         </Container>
+        <Container sx={{py: 8}} maxWidth="md">
+        <a class="twitter-timeline" href="https://twitter.com/EthUncensored?ref_src=twsrc%5Etfw">Tweets by EthUncensored</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </Container>
       </main>
       {/* Footer */}
       <Box
@@ -456,12 +460,6 @@ export default function Landing() {
           Made with ❤️ at ETHMéxico with the invaluable help of the <Link href="https://ethereum.org/foundation/" target="_blank" style={{textDecoration:"none", color:"white"}}>Ethereum Foundation</Link>
         </Typography>
         <Container style={{ display:"flex",flexDirection:"row", alignItems:"center", justifyContent:"space-evenly", alignContent:"center"}}>
-        <Link href="https://twitter.com/EthUncensored" target={"_blank"} style={{textDecoration:"none"}}>
-          <img
-            src="/Twitter.png"
-            style={{ width: "50%",  maxWidth:"150px", margin: "10px" }}
-          ></img>
-        </Link>
           
         <Link
           href="https://github.com/bilinkis/eth2-censorship-resistance"
