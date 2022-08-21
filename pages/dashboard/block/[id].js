@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Head from "next/head";
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
@@ -78,6 +79,10 @@ function DashboardContent() {
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
+        <Head>
+        <title>Ethereum Uncensored</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
         <AppBar position="absolute" >
           <Toolbar
             sx={{

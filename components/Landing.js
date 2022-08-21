@@ -1,4 +1,5 @@
 import * as React from "react";
+import Head from "next/head"
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import CameraIcon from "@mui/icons-material/PhotoCamera";
@@ -22,6 +23,10 @@ export default function Landing() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Head>
+        <title>Ethereum Uncensored</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
       <main>
         {/* Hero unit */}
