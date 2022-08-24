@@ -98,7 +98,7 @@ export default function Landing() {
           >
             Roadmap
           </Typography>
-          <img src="/roadmap.png" style={{maxWidth:"1000px"}}></img>
+          <img src="/roadmap.png" style={{width: "100%"}}></img>
           
         </Container>
         <Container sx={{ py: 8 }} maxWidth="lg">
