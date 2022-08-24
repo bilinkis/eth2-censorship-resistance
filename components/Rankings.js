@@ -48,9 +48,9 @@ const blocks = [
 ];
 const protocols = [
   createProtocol("Tornado Cash", 45),
-  createProtocol("Proof of Humanity", 27),
-  createProtocol("Open Sea", 20),
-  createProtocol("ENS", 14)
+  createProtocol("Protocol #2", 27),
+  createProtocol("Protocol #3", 20),
+  createProtocol("Protocol #4", 14)
 ]
 const censored = [
 createProtocol("0x5fbddead785d433a7a45db96b02edf68bad27033", 10),

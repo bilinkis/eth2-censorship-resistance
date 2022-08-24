@@ -129,6 +129,7 @@ function DashboardContent() {
               style={{ marginBottom: "30px" }}
             >Find out about possible censorship attempts on Ethereum's blockchain </Typography>
               <Grid item xs={12} md={12} lg={12} style={{display:"flex", justifyContent:"center", backgroundColor:"#fff", marginBottom:"5%"}}>
+                
               <LineChart 
                         height={400}
                         data={data}
@@ -139,6 +140,7 @@ function DashboardContent() {
               </Grid>
               {/* Recent Orders */}
               <Grid style={{display:"block", margin:"0 auto"}}>
+              <h1 style={{fontWeight:"bold", color:"red"}}>We're working hard to get real data once the merge is executed. Please notice that the data contained here is not real yet!</h1>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems:"center" }}>
                   <Rankings />
                 </Paper>
